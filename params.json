@@ -1,0 +1,1 @@
+{"name":"One rep max","tagline":"","body":"This is a Flask app that calculates your one rep max using several formulas, and displays them on a graph like this:\r\n\r\n![graph](chart.png)\r\n\r\nI used [Highcharts](http://www.highcharts.com/) to create the graph.","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
