@@ -1,12 +1,11 @@
 <html>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <head>
+    <title>{{title}}</title>
+    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script type="text/javascript">
-if (L){
-    var L = [0,0,0,0,0,0]
-    }
-else{
+
         var L = {{ L }}
-    }
+
 $(function () {
         $('#container').highcharts({
             chart: {
@@ -68,20 +67,31 @@ $(function () {
     
 
 		</script>
-
-  <head>
-    <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/orm.css">
   </head>
   <body>
-  <form action="/" method='post' name='orm'>
-  <label>Weight: </label>{{options.weight}}
-  <label>Reps:</label>{{options.reps}}
+  <h1>One-Rep Max Calculator</h1>
+  <p>Enter the weight you can lift (in lb) and the number of reps you can lift it.</p>
+  <p>This will give you a the results of your one rep max calculated from several different forumulas</p>
+  <p>The following formulas are based on the formulas from <a src='http://en.wikipedia.org/wiki/One-repetition_maximum#Calculating_approximate_1RM'>Wikipedia</a></p>
+  <form action="/results" method='post' name='orm'>
+  <label>Weight: </label>{{form.weight}}<br />
+  <label>Reps:</label>{{form.reps}}
 
   <input type='submit' value='Calculate'>
   </form>
       {% if orm %}
     <p>Your One Rep Max is: <em>{{orm}}</em></p>
     {% endif %}
+        {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
   <script src="/static/js/highcharts.js"></script>
 <script src="static/js/modules/exporting.js"></script>
 
