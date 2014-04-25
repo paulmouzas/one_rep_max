@@ -5,3 +5,4 @@ Jinja2==2.7.2
 WTForms==1.0.5
 Werkzeug==0.9.4
 heroku==0.1.4
+gunicorn
