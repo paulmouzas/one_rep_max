@@ -27,5 +27,5 @@ def results():
             form = form,
             w = w,
             r = r)
-    flash('For Weight enter a number between 20-100 lb and for Reps between 2-10')
+    flash('For Weight enter a number between 20-500 lb and for Reps between 2-10')
     return redirect('/')
